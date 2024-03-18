@@ -18,7 +18,7 @@ The base engine is planned to include:
 - Methods for matrix math, as well as other important math. (this is a call for help)
 - A custom shading language as well as *compilers.
 - Methods to load models (will start with obj as the data is easier to parse)
-- Methods to create custom models. (will be implamented first as it's the easiest)
+- Methods to create custom models. (will be implemented first as it's the easiest)
 - A more dynamic random number generator
 
 *These compilers shall both work for server side and client side (client side first, then server side). The method it uses to compile will be documented as well. Creating the possibility for custom compilers. The current plan will be structured more towards WebGL(2) as it's what I'm currently the most comfortable with.
@@ -28,10 +28,11 @@ A lot of the base engine will be similar to unity, as it's also what I'm the mos
 
 ### Experimental thoughts:
 - The current name I came up with in a couple of seconds and will probably be changed to something shorter and more "flashy".
-- The base engine might get the option to dynamicly switch between engines on will. Which will be a safety in case of an engine error (specificly targeted at WebGPU or any future implamentations)
+- The base engine might get the option to dynamicly switch between engines on will. Which will be a safety in case of an engine error (specificly targeted at WebGPU or any future implementations)
 - Once I have a strong base finished I might attempt to create an external engine for making projects. With creating this I will make a less "human" internal functions as well as better methods of saving *Scenes.
+- Automatic usage of multithreading to be able to perform internal operations faster. (it will be possible to disable this if implemented)
 
-*I'm unsure of when and how I will implament scenes/nodes which it's usually called. In the beginning the base engine will only be able to support
+*I'm unsure of when and how I will implement scenes/nodes which it's usually called. In the beginning the base engine will only be able to support
  a single scene. But the api will be fluid enough so if needed, it can be created yourself.
  
 ### Final thoughts:
