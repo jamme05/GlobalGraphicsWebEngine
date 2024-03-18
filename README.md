@@ -17,8 +17,8 @@ The base engine is planned to include:
 - A transform class
 - Methods for matrix math, as well as other important math. (this is a call for help)
 - A custom shading language as well as *compilers.
-- Methods to load models (will start with obj as everything is written)
-- Methods to send custom model data.
+- Methods to load models (will start with obj as the data is easier to parse)
+- Methods to create custom models. (will be implamented first as it's the easiest)
 - A more dynamic random number generator
 
 *These compilers shall both work for server side and client side (client side first, then server side). The method it uses to compile will be documented as well. Creating the possibility for custom compilers. The current plan will be structured more towards WebGL(2) as it's what I'm currently the most comfortable with.
