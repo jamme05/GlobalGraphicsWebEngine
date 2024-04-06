@@ -6,7 +6,7 @@ It will have the main focus of working as a game engine, but I will add support 
 ## The plan:
 ### Engines:
 The are the currently planned (and from my knowledge) only existing graphics apis which are supported by most browsers. Due to WebGPU still being in its early stages, development may take (extra) time and include errors at times.
-- WebGL
+- WebGL (might not be implamented due to WebGL2 being backwards compatable as well as basically having [full support](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#api.webgl2renderingcontext) since a while ago)
 - WebGL2
 - WebGPU
 
