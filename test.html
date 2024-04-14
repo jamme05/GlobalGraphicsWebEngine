@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load File into Variable</title>
+    <script>
+        var Mesh;
+        (async ()=>{
+            Mesh = (await import('./global/Graphics/Rendering/Mesh.js')).default;
+        })();
+    </script>
+</head>
+<body>
+    <h1>Load File into Variable</h1>
+
+    <input type="file" id="fileInput" />
+    <button onclick="loadFile()">Load File</button>
+
+    <script>
+        function loadFile() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+
+            Mesh.FromOBJ(file);
+        }
+    </script>
+</body>
+</html>

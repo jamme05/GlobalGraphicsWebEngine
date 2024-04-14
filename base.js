@@ -1,3 +1,8 @@
+HalfFloat
+(async ()=>{
+
+})();
+
 /**
  * 
  * @param {EngineConfig} config 
@@ -19,7 +24,7 @@ async function SelectEngine(config){
                 if(gl == null) break;
 
                 var engine = await import('./engine/webgl/index.js');
-                return engine;
+                return engine.default;
         }
     }
 }
