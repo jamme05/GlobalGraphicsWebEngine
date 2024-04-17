@@ -51,11 +51,16 @@ export default class Mesh{
         // Use working row data
         for(let i = 0; i < rows.length; ++i){
             /**
-             * @type {['#']|['o',string]|['v','0.000000','0.000000','0.000000']|['vn','0.000000','0.000000','0.000000']|['vt','0.000000','0.000000']}
+             * @type {['#']|['o',name]|['v','0.000000','0.000000','0.000000']|['vn','0.000000','0.000000','0.000000']|['vt','0.000000','0.000000']|['f','0/0/0 0/0/0 0/0/0']}
              */
             var command = rows[i].split(' ');
 
-            switch(command[0])
+            switch(command[0]){
+                case 'o': // New vertex segment / submesh
+                    break;
+                case 'v': // Vertex
+                    break;
+            }
         }
     }
 
