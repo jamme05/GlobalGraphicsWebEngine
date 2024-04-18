@@ -1,4 +1,4 @@
-export default class Mesh{
+class Mesh{
     /**
      * 
      * @type {number} 
@@ -8,11 +8,23 @@ export default class Mesh{
 
     }
 
-    Verticies;
-    Indicies;
-    UVs;
-    Normals;
+    /**
+     * @type {SubMesh[]}
+     */
+    submeshes = [];
 
+    /**
+     * @type {string}
+     */
+    Name;
+
+    /**
+     * 
+     * @param {string|Blob|File|Request} objFile 
+     * @param  {...any} mtlFiles 
+     * 
+     * @returns {Mesh[]}
+     */
     static async FromOBJ(objFile,...mtlFiles){
         /**
          * @type {string[]}
@@ -48,18 +60,29 @@ export default class Mesh{
         var temp_verticies = [];
         var temp_uvs = [];
         var temp_normals = [];
+        var meshes = [];
+
+        var activeMesh = new Mesh(null);
         // Use working row data
         for(let i = 0; i < rows.length; ++i){
             /**
-             * @type {['#']|['o',name]|['v','0.000000','0.000000','0.000000']|['vn','0.000000','0.000000','0.000000']|['vt','0.000000','0.000000']|['f','0/0/0 0/0/0 0/0/0']}
+             * @type {['#']|['o',String]|['g',String]|['v','0.000000','0.000000','0.000000']|['vn','0.000000','0.000000','0.000000']|['vt','0.000000','0.000000']|['f','0/0/0 0/0/0 0/0/0']}
              */
             var command = rows[i].split(' ');
 
             switch(command[0]){
-                case 'o': // New vertex segment / submesh
-                    break;
+                case 'o': // New object/mesh
+                    if(activeMesh.Name == null && activeMesh.length == 0) activeMesh.Name = command[1];
+                    else{
+                        meshes.push(activeMesh);
+                        activeMesh = new Mesh(command[1]);
+                    }
+                break;
+                case 'g': // new submesh
+                    
+                break;
                 case 'v': // Vertex
-                    break;
+                break;
             }
         }
     }
@@ -68,3 +91,17 @@ export default class Mesh{
         
     }
 }
+
+class SubMesh{
+    Verticies;
+    Indicies;
+    UVs;
+    Normals;
+    Name;
+
+    constructor(name){
+        this.Name = name;
+    }
+}
+
+export {Mesh,SubMesh}
