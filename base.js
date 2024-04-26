@@ -1,8 +1,3 @@
-HalfFloat
-(async ()=>{
-
-})();
-
 /**
  * 
  * @param {EngineConfig} config 
@@ -52,6 +47,7 @@ async function InitWebGL2(config){
  * 
  */
 async function InitWebGPU(){
+    return null;
     if(!navigator.gpu){
         return null;
     }
